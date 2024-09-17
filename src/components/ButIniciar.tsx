@@ -1,7 +1,9 @@
 export default function ButIniciar({ onClick }: { onClick: () => void }) {
   return (
-    <button className="butIniciar" onClick={onClick}>
-      Iniciar
-    </button>
+    <div className="butIniciarBg">
+      <button className="butIniciar" onClick={onClick}>
+        <span>Iniciar</span>
+      </button>
+    </div>
   );
 }
