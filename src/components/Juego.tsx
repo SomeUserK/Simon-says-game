@@ -23,12 +23,12 @@ function Juego() {
   const [simonActiveDelay] = useState(500);
   const [noNewGameTimeout, setNoNewGameTimeout] = useState<number | null>(null);
 
-  const [playSimonSound1] = useSound('/src/assets/sounds/simonSound1.mp3');
-  const [playSimonSound2] = useSound('/src/assets/sounds/simonSound2.mp3');
-  const [playSimonSound3] = useSound('/src/assets/sounds/simonSound3.mp3');
-  const [playSimonSound4] = useSound('/src/assets/sounds/simonSound4.mp3');
-  const [playLosingRound] = useSound('/src/assets/sounds/losingRound.mp3');
-  const [playEndingRound] = useSound('/src/assets/sounds/endingRound.mp3');
+  const [playSimonSound1] = useSound('/sounds/simonSound1.mp3');
+  const [playSimonSound2] = useSound('/sounds/simonSound2.mp3');
+  const [playSimonSound3] = useSound('/sounds/simonSound3.mp3');
+  const [playSimonSound4] = useSound('/sounds/simonSound4.mp3');
+  const [playLosingRound] = useSound('/sounds/losingRound.mp3');
+  const [playEndingRound] = useSound('/sounds/endingRound.mp3');
 
   // async function roundPass(newGame = false) {
   //   setGameStatus('wait');
