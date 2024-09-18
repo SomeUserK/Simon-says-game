@@ -1,47 +1,3 @@
-:root {
-  --all-bg: #282c34;
-  --all-color: white;
-  font-family: 'Roboto', sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  margin: 0;
-  padding: 0;
-
-  background-color: var(--all-bg);
-  color: var(--all-color);
-}
-
-body {
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-button {
-  cursor: pointer;
-}
-
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-}
-
-main {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-}
-
 .simon {
   position: absolute;
   width: 48%;
@@ -104,7 +60,15 @@ main {
   right: 0;
 }
 
+.container-game {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .container-simon {
+  margin-top: 17px;
+  display: flex;
   position: relative;
   width: 55vmin;
   height: 55vmin;
@@ -136,7 +100,6 @@ main {
 .butIniciar > span {
   color: var(--all-bg);
   font-size: 1.5rem;
-  text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
 }
 
 .butIniciar:focus .butIniciar:hover {
@@ -153,8 +116,10 @@ main {
 .contador-container {
   display: flex;
   position: relative;
+  justify-content: space-around;
+  align-items: center;
   width: 100%;
-  justify-content: space-between;
+  left: 36px;
 }
 
 .rounds,
@@ -162,4 +127,38 @@ main {
   list-style-type: none;
   margin: 0;
   padding: 0;
+}
+
+.emoji-status {
+  font-size: 2.5rem;
+}
+
+.butback {
+  margin-top: 30px;
+  border: none;
+  background-color: transparent;
+  color: var(--all-color);
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 700px) {
+  .container-simon {
+    width: 90vmin;
+    height: 90vmin;
+  }
+  .butIniciarBg {
+    width: 50%;
+    height: 50%;
+  }
+  .butIniciar {
+    width: 100%;
+    height: 100%;
+  }
+  .butIniciar > span {
+    font-size: 1.2rem;
+  }
+  .emoji-status {
+    font-size: 2rem;
+  }
 }

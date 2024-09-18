@@ -1,28 +1,30 @@
 import { useEffect, useState } from 'react';
 
-const storageKey = 'maxRound';
+const storageKey = 'maxRound-diff-';
 const emojiList = ['😎', '😴', '😯', '🤬'];
 
 export default function Contador({
   gameStatus,
-  round
+  round,
+  gameDifficulty
 }: {
   gameStatus: myGameStatus;
   round: number;
+  gameDifficulty: myDiffLevels;
 }) {
   const [maxRound, setMaxRound] = useState(0);
 
   useEffect(() => {
-    const maxRound = localStorage.getItem(storageKey);
+    const maxRound = localStorage.getItem(storageKey + gameDifficulty);
     if (maxRound) setMaxRound(parseInt(maxRound));
-  }, []);
+  }, [gameDifficulty]);
 
   useEffect(() => {
     if (round > maxRound) {
       setMaxRound(round);
-      localStorage.setItem(storageKey, round.toString());
+      localStorage.setItem(storageKey + gameDifficulty, round.toString());
     }
-  }, [round, maxRound]);
+  }, [round, maxRound, gameDifficulty]);
 
   function selectEmoji() {
     switch (gameStatus) {
@@ -37,11 +39,26 @@ export default function Contador({
     }
   }
 
+  function diffName() {
+    switch (gameDifficulty) {
+      case 0:
+        return 'Facil';
+      case 1:
+        return 'Normal';
+      case 2:
+        return 'Dificil';
+      case 3:
+        return 'Locura';
+    }
+  }
+
   return (
     <li className="contador-container">
-      <ul className="rounds">Ronda: {round}</ul>
+      <ul className="rounds">Ronda Actual: {round}</ul>
       <ul className="emoji-status">{selectEmoji()}</ul>
-      <ul className="maxRounds">Ronda Maxima: {maxRound}</ul>
+      <ul className="maxRounds">
+        Ronda Maxima ({diffName()}): {maxRound}
+      </ul>
     </li>
   );
 }
