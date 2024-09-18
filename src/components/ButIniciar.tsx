@@ -1,8 +1,8 @@
-export default function ButIniciar({ onClick }: { onClick: () => void }) {
+export default function ButReintentar({ onClick }: { onClick: () => void }) {
   return (
     <div className="butIniciarBg">
       <button className="butIniciar" onClick={onClick}>
-        <span>Iniciar</span>
+        <span>Reintentar</span>
       </button>
     </div>
   );
